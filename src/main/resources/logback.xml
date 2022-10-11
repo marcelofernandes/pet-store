@@ -1,6 +1,6 @@
 <configuration>
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>/home/marcelo/Downloads/myapp.log</file>
+    <file>/usr/local/lib/movies-battle/logs/movies.log</file>
     <append>false</append>
     <immediateFlush>true</immediateFlush>
     <encoder>

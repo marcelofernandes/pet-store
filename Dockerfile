@@ -13,5 +13,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 RUN chmod go-w /etc/filebeat/filebeat.yml
 
-EXPOSE 8080
+# EXPOSE 8080
 CMD /entrypoint.sh && java -jar /usr/local/lib/movies-battle/movies-battle-0.0.1-SNAPSHOT.jar
+# CMD java -jar -Dserver.port=${PORT} /usr/local/lib/movies-battle/movies-battle-0.0.1-SNAPSHOT.jar
+# CMD java -jar /usr/local/lib/movies-battle/movies-battle-0.0.1-SNAPSHOT.jar
