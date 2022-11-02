@@ -19,7 +19,7 @@ public class MoviesBattleApplication {
     public static void main(String[] args) {
         SpringApplication.run(MoviesBattleApplication.class, args);
         Logger logger = LoggerFactory.getLogger(MoviesBattleApplication.class);
-        logger.info("aaa");
+        logger.info("Application started.");
     }
 
     @Bean

@@ -1,4 +1,4 @@
 server.name: kibana
 server.host: "0"
-elasticsearch.hosts: [ "https:elasticsearch-pcs.herokuapp.com:443" ]
+elasticsearch.hosts: [ "https://elasticsearch-pcs.herokuapp.com:443" ]
 # server.port: 5601
