@@ -23,15 +23,16 @@ public class WebSecurityCon extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity security) throws Exception {
-        security.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/authenticate/sign-in").permitAll()
-                .antMatchers(HttpMethod.POST, "/users").permitAll()
-                .antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/v3/api-docs/swagger-config/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .addFilterBefore(new AuthenticationFilterS(this.authenticateService), UsernamePasswordAuthenticationFilter.class)
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    	security.cors().and().csrf().disable().authorizeRequests()
+        .antMatchers(HttpMethod.POST, "/authenticate/sign-in").permitAll()
+        .antMatchers(HttpMethod.POST, "/users").permitAll()
+        .antMatchers(HttpMethod.GET, "/users/health").permitAll()
+        .antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/v3/api-docs/swagger-config/**").permitAll()
+        .anyRequest().authenticated()
+        .and()
+        .addFilterBefore(new AuthenticationFilterS(this.authenticateService), UsernamePasswordAuthenticationFilter.class)
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Override

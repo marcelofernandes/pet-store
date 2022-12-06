@@ -24,13 +24,14 @@ public class UserService {
 
     public UserDto create(UserDto userDto) {
     	
-        userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+    	userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         var user = userRepository.save(userMapper.toModel(userDto));
         return userMapper.toDto(user);
     }
 
     public Optional<User> getByUsername(String username) {
-        return userRepository.findByUsername(username);
+    	Optional<User> user = userRepository.findByUsername(username);
+        return user;
     }
 }
 

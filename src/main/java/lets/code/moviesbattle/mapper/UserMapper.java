@@ -2,16 +2,24 @@ package lets.code.moviesbattle.mapper;
 
 import lets.code.moviesbattle.dto.UserDto;
 import lets.code.moviesbattle.model.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
-//@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface UserMapper {
+public class UserMapper {
 
-    UserDto toDto(User user);
+    public UserDto toDto(User user) {
+    	UserDto dto = new UserDto();
+    	dto.setId(user.getId());
+    	dto.setName(user.getName());
+    	dto.setUsername(user.getUsername());
+    	return dto;
+    }
 
-    User toModel(UserDto userDto);
+    public User toModel(UserDto userDto) {
+    	User user = new User();
+    	user.setId(userDto.getId());
+    	user.setName(userDto.getName());
+    	user.setUsername(userDto.getUsername());
+    	return user;
+    }
 }
